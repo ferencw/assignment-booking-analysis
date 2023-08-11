@@ -1,0 +1,1 @@
+zip -r my_spark_app .zip src 
