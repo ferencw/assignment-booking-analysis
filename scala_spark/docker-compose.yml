@@ -1,0 +1,17 @@
+services:
+  klm_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      driver --class Main local:///opt/spark/work-dir/application.jar
+       file:///opt/spark/work-dir/data/airports/airports.dat 
+       file:///opt/spark/work-dir/data/bookings/booking.json 
+       "$START_DATE" 
+       "$END_DATE" 
+       file:///opt/spark/work-dir/out/
+    volumes:
+      - ./out:/opt/spark/work-dir/out
+      - ./data:/opt/spark/work-dir/data/
+    env_file:
+      - .env
