@@ -41,10 +41,6 @@ object Runner{
     val startTimestamp = new java.sql.Timestamp(startDate.getTime)
     val endTimestamp = new java.sql.Timestamp(endDate.getTime)
 
-    val log = org.apache.log4j.LogManager.getRootLogger
-    log.warn(startDate.isInstanceOf[java.sql.Timestamp])
-    log.warn(endDate.isInstanceOf[java.sql.Timestamp])
-
     val spark = SparkSession.builder
       .appName("KLM Assignment")
       .getOrCreate()
